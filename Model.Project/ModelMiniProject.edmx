@@ -1,0 +1,1569 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DBSpecModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="x_addrbook">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" Nullable="false" />
+          <Property Name="created_by" Type="bigint" Nullable="false" />
+          <Property Name="created_on" Type="datetime" Nullable="false" />
+          <Property Name="modified_by" Type="bigint" />
+          <Property Name="modified_on" Type="datetime" />
+          <Property Name="deleted_by" Type="bigint" />
+          <Property Name="deleted_on" Type="datetime" />
+          <Property Name="is_delete" Type="bit" Nullable="false" />
+          <Property Name="is_locked" Type="bit" Nullable="false" />
+          <Property Name="attempt" Type="int" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="abuid" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="abpwd" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="fp_token" Type="varchar" MaxLength="100" />
+          <Property Name="fp_expired_date" Type="datetime" />
+          <Property Name="fp_counter" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="x_address">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="created_by" Type="bigint" Nullable="false" />
+          <Property Name="created_on" Type="datetime" Nullable="false" />
+          <Property Name="modified_by" Type="bigint" />
+          <Property Name="modified_on" Type="datetime" />
+          <Property Name="deleted_by" Type="bigint" />
+          <Property Name="deleted_on" Type="datetime" />
+          <Property Name="is_delete" Type="bit" Nullable="false" />
+          <Property Name="biodata_id" Type="bigint" Nullable="false" />
+          <Property Name="address1" Type="varchar" MaxLength="1000" />
+          <Property Name="postal_code1" Type="varchar" MaxLength="20" />
+          <Property Name="rt1" Type="varchar" MaxLength="5" />
+          <Property Name="rw1" Type="varchar" MaxLength="5" />
+          <Property Name="kelurahan1" Type="varchar" MaxLength="100" />
+          <Property Name="kecamatan1" Type="varchar" MaxLength="100" />
+          <Property Name="region1" Type="varchar" MaxLength="100" />
+          <Property Name="address2" Type="varchar" MaxLength="1000" />
+          <Property Name="postal_code2" Type="varchar" MaxLength="20" />
+          <Property Name="rt2" Type="varchar" MaxLength="5" />
+          <Property Name="rw2" Type="varchar" MaxLength="5" />
+          <Property Name="kelurahan2" Type="varchar" MaxLength="100" />
+          <Property Name="kecamatan2" Type="varchar" MaxLength="100" />
+          <Property Name="region2" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="x_biodata">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="created_by" Type="bigint" Nullable="false" />
+          <Property Name="created_on" Type="datetime" Nullable="false" />
+          <Property Name="modified_by" Type="bigint" />
+          <Property Name="modified_on" Type="datetime" />
+          <Property Name="deleted_by" Type="bigint" />
+          <Property Name="deleted_on" Type="datetime" />
+          <Property Name="is_delete" Type="bit" Nullable="false" />
+          <Property Name="fullname" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="nick_name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="pob" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="dob" Type="date" Nullable="false" />
+          <Property Name="gender" Type="bit" Nullable="false" />
+          <Property Name="religion_id" Type="bigint" Nullable="false" />
+          <Property Name="high" Type="int" />
+          <Property Name="weight" Type="int" />
+          <Property Name="nationally" Type="varchar" MaxLength="100" />
+          <Property Name="ethnic" Type="varchar" MaxLength="50" />
+          <Property Name="hobby" Type="varchar" MaxLength="255" />
+          <Property Name="identity_type_id" Type="bigint" Nullable="false" />
+          <Property Name="identity_no" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="phone_number1" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="phone_number2" Type="varchar" MaxLength="50" />
+          <Property Name="parent_phone_number" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="child_sequence" Type="varchar" MaxLength="5" />
+          <Property Name="how_many_brothers" Type="varchar" MaxLength="5" />
+          <Property Name="marital_status_id" Type="bigint" Nullable="false" />
+          <Property Name="addrbook_id" Type="bigint" />
+          <Property Name="token" Type="varchar" MaxLength="10" />
+          <Property Name="expired_token" Type="date" />
+          <Property Name="marriage_year" Type="varchar" MaxLength="10" />
+          <Property Name="company_id" Type="bigint" Nullable="false" />
+          <Property Name="is_process" Type="bit" />
+          <Property Name="is_complete" Type="bit" />
+        </EntityType>
+        <EntityType Name="x_client">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="created_by" Type="bigint" Nullable="false" />
+          <Property Name="created_on" Type="datetime" Nullable="false" />
+          <Property Name="modified_by" Type="bigint" />
+          <Property Name="modified_on" Type="datetime" />
+          <Property Name="deleted_by" Type="bigint" />
+          <Property Name="deleted_on" Type="datetime" />
+          <Property Name="is_delete" Type="bit" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="user_client_name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ero" Type="bigint" Nullable="false" />
+          <Property Name="user_email" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="x_employee">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="created_by" Type="bigint" Nullable="false" />
+          <Property Name="created_on" Type="datetime" Nullable="false" />
+          <Property Name="modified_by" Type="bigint" />
+          <Property Name="modified_on" Type="datetime" />
+          <Property Name="deleted_by" Type="bigint" />
+          <Property Name="deleted_on" Type="datetime" />
+          <Property Name="is_delete" Type="bit" Nullable="false" />
+          <Property Name="biodata_id" Type="bigint" Nullable="false" />
+          <Property Name="is_idle" Type="bit" />
+          <Property Name="is_ero" Type="bit" />
+          <Property Name="is_user_client" Type="bit" />
+          <Property Name="ero_email" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="x_identity_type">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="description" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="x_marital_status">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="description" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="x_menu_access">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="menutree_id" Type="bigint" Nullable="false" />
+          <Property Name="role_id" Type="bigint" Nullable="false" />
+          <Property Name="created_by" Type="bigint" Nullable="false" />
+          <Property Name="created_on" Type="datetime" Nullable="false" />
+          <Property Name="modified_by" Type="bigint" />
+          <Property Name="modified_on" Type="datetime" />
+          <Property Name="deleted_by" Type="bigint" />
+          <Property Name="deleted_on" Type="datetime" />
+          <Property Name="is_delete" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="x_menutree">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="title" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="menu_imageUrl" Type="varchar" MaxLength="100" />
+          <Property Name="menu_icon" Type="varchar" MaxLength="100" />
+          <Property Name="menu_order" Type="int" Nullable="false" />
+          <Property Name="menu_level" Type="int" Nullable="false" />
+          <Property Name="menu_parent" Type="int" />
+          <Property Name="menu_url" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="menu_type" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="created_by" Type="int" Nullable="false" />
+          <Property Name="created_on" Type="datetime" Nullable="false" />
+          <Property Name="modified_by" Type="int" />
+          <Property Name="modified_on" Type="datetime" />
+          <Property Name="delete_by" Type="int" />
+          <Property Name="detele_on" Type="datetime" />
+          <Property Name="is_delete" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="x_online_test">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="created_by" Type="bigint" Nullable="false" />
+          <Property Name="created_on" Type="datetime" Nullable="false" />
+          <Property Name="modified_by" Type="bigint" />
+          <Property Name="modified_on" Type="datetime" />
+          <Property Name="deleted_by" Type="bigint" />
+          <Property Name="deleted_on" Type="datetime" />
+          <Property Name="is_delete" Type="bit" Nullable="false" />
+          <Property Name="biodata_id" Type="bigint" Nullable="false" />
+          <Property Name="period_code" Type="varchar" MaxLength="50" />
+          <Property Name="period" Type="int" />
+          <Property Name="test_date" Type="date" />
+          <Property Name="expired_test" Type="date" />
+          <Property Name="user_access" Type="varchar" MaxLength="10" />
+          <Property Name="status" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="x_online_test_detail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="created_by" Type="bigint" Nullable="false" />
+          <Property Name="created_on" Type="datetime" Nullable="false" />
+          <Property Name="modified_by" Type="bigint" />
+          <Property Name="modified_on" Type="datetime" />
+          <Property Name="deleted_by" Type="bigint" />
+          <Property Name="deleted_on" Type="datetime" />
+          <Property Name="is_delete" Type="bit" Nullable="false" />
+          <Property Name="online_test_id" Type="bigint" />
+          <Property Name="test_type_id" Type="bigint" />
+          <Property Name="test_order" Type="int" />
+        </EntityType>
+        <EntityType Name="x_placement">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="created_by" Type="bigint" Nullable="false" />
+          <Property Name="created_on" Type="datetime" Nullable="false" />
+          <Property Name="modified_by" Type="bigint" />
+          <Property Name="modified_on" Type="datetime" />
+          <Property Name="deleted_by" Type="bigint" />
+          <Property Name="deleted_on" Type="datetime" />
+          <Property Name="is_delete" Type="bit" Nullable="false" />
+          <Property Name="client_id" Type="bigint" Nullable="false" />
+          <Property Name="employee_id" Type="bigint" Nullable="false" />
+          <Property Name="is_placement_active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="x_religion">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="created_by" Type="bigint" Nullable="false" />
+          <Property Name="created_on" Type="datetime" Nullable="false" />
+          <Property Name="modified_by" Type="bigint" />
+          <Property Name="modified_on" Type="datetime" />
+          <Property Name="deleted_by" Type="bigint" />
+          <Property Name="deleted_on" Type="datetime" />
+          <Property Name="is_delete" Type="bit" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="description" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="x_rencana_jadwal">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="created_by" Type="bigint" Nullable="false" />
+          <Property Name="created_on" Type="datetime" Nullable="false" />
+          <Property Name="modified_by" Type="bigint" />
+          <Property Name="modified_on" Type="datetime" />
+          <Property Name="deleted_by" Type="bigint" />
+          <Property Name="deleted_on" Type="datetime" />
+          <Property Name="id_delete" Type="bit" Nullable="false" />
+          <Property Name="schedule_code" Type="varchar" MaxLength="20" />
+          <Property Name="schedule_date" Type="date" />
+          <Property Name="time" Type="varchar" MaxLength="10" />
+          <Property Name="ro" Type="bigint" />
+          <Property Name="tro" Type="bigint" />
+          <Property Name="schedule_type_id" Type="bigint" />
+          <Property Name="location" Type="varchar" MaxLength="100" />
+          <Property Name="other_ro_tro" Type="varchar" MaxLength="100" />
+          <Property Name="notes" Type="varchar" MaxLength="1000" />
+          <Property Name="is_automatic_mail" Type="bit" />
+          <Property Name="sent_date" Type="date" />
+          <Property Name="status" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="x_riwayat_pekerjaan">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="created_by" Type="int" Nullable="false" />
+          <Property Name="created_on" Type="datetime" Nullable="false" />
+          <Property Name="modified_by" Type="int" />
+          <Property Name="modified_on" Type="datetime" />
+          <Property Name="delete_by" Type="int" />
+          <Property Name="delete_on" Type="datetime" />
+          <Property Name="is_delete" Type="bit" Nullable="false" />
+          <Property Name="biodata_id" Type="int" Nullable="false" />
+          <Property Name="company_name" Type="varchar" MaxLength="100" />
+          <Property Name="city" Type="varchar" MaxLength="50" />
+          <Property Name="country" Type="varchar" MaxLength="50" />
+          <Property Name="join_year" Type="varchar" MaxLength="10" />
+          <Property Name="join_month" Type="varchar" MaxLength="10" />
+          <Property Name="resign_year" Type="varchar" MaxLength="10" />
+          <Property Name="resign_month" Type="varchar" MaxLength="10" />
+          <Property Name="last_position" Type="varchar" MaxLength="100" />
+          <Property Name="income" Type="varchar" MaxLength="20" />
+          <Property Name="is_it_related" Type="bit" />
+          <Property Name="about_job" Type="varchar" MaxLength="1000" />
+          <Property Name="exit_reason" Type="varchar" MaxLength="500" />
+          <Property Name="notes" Type="varchar" MaxLength="5000" />
+        </EntityType>
+        <EntityType Name="x_riwayat_pendidikan">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="school_name" Type="varchar" MaxLength="100" />
+          <Property Name="biodata_id" Type="bigint" Nullable="false" />
+          <Property Name="major" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="x_role">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="code" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="created_by" Type="bigint" Nullable="false" />
+          <Property Name="created_on" Type="datetime" Nullable="false" />
+          <Property Name="modified_by" Type="bigint" />
+          <Property Name="modified_on" Type="datetime" />
+          <Property Name="deleted_by" Type="bigint" />
+          <Property Name="deleted_on" Type="datetime" />
+          <Property Name="is_delete" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="x_schedule_type">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="description" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="x_sertifikasi">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="created_by" Type="bigint" Nullable="false" />
+          <Property Name="created_on" Type="datetime" Nullable="false" />
+          <Property Name="modified_by" Type="bigint" />
+          <Property Name="modified_on" Type="datetime" />
+          <Property Name="deleted_by" Type="bigint" />
+          <Property Name="deleted_on" Type="datetime" />
+          <Property Name="is_delete" Type="bit" Nullable="false" />
+          <Property Name="biodata_id" Type="bigint" Nullable="false" />
+          <Property Name="certificate_name" Type="varchar" MaxLength="200" />
+          <Property Name="publisher" Type="varchar" MaxLength="100" />
+          <Property Name="valid_start_year" Type="varchar" MaxLength="10" />
+          <Property Name="valid_start_month" Type="varchar" MaxLength="10" />
+          <Property Name="until_year" Type="varchar" MaxLength="10" />
+          <Property Name="until_month" Type="varchar" MaxLength="10" />
+          <Property Name="notes" Type="varchar" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="x_test_type">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="created_by" Type="bigint" Nullable="false" />
+          <Property Name="created_on" Type="datetime" Nullable="false" />
+          <Property Name="modified_by" Type="bigint" />
+          <Property Name="modified_on" Type="datetime" />
+          <Property Name="deleted_by" Type="bigint" />
+          <Property Name="deleted_on" Type="datetime" />
+          <Property Name="is_delete" Type="bit" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="description" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="x_time_period">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="description" Type="varchar" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="x_timesheet">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="created_by" Type="bigint" Nullable="false" />
+          <Property Name="created_on" Type="datetime" Nullable="false" />
+          <Property Name="modified_by" Type="bigint" />
+          <Property Name="modified_on" Type="datetime" />
+          <Property Name="deleted_by" Type="bigint" />
+          <Property Name="deleted_on" Type="datetime" />
+          <Property Name="is_delete" Type="bit" Nullable="false" />
+          <Property Name="status" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="placement_id" Type="bigint" Nullable="false" />
+          <Property Name="timesheet_date" Type="date" />
+          <Property Name="start" Type="varchar" MaxLength="5" />
+          <Property Name="end" Type="varchar" MaxLength="5" />
+          <Property Name="overtime" Type="bit" />
+          <Property Name="start_ot" Type="varchar" MaxLength="5" />
+          <Property Name="end_ot" Type="varchar" MaxLength="5" />
+          <Property Name="activity" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="user_approval" Type="varchar" MaxLength="50" />
+          <Property Name="submitted_on" Type="datetime" />
+          <Property Name="approved_on" Type="datetime" />
+          <Property Name="ero_status" Type="varchar" MaxLength="50" />
+          <Property Name="sent_on" Type="datetime" />
+          <Property Name="collected_on" Type="datetime" />
+        </EntityType>
+        <EntityType Name="x_timesheet_assessment">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="created_by" Type="bigint" Nullable="false" />
+          <Property Name="created_on" Type="datetime" Nullable="false" />
+          <Property Name="modified_by" Type="bigint" />
+          <Property Name="modified_on" Type="datetime" />
+          <Property Name="deleted_by" Type="bigint" />
+          <Property Name="deleted_on" Type="datetime" />
+          <Property Name="is_delete" Type="bit" Nullable="false" />
+          <Property Name="year" Type="int" Nullable="false" />
+          <Property Name="month" Type="int" Nullable="false" />
+          <Property Name="placement_id" Type="bigint" Nullable="false" />
+          <Property Name="target_result" Type="int" Nullable="false" />
+          <Property Name="competency" Type="int" Nullable="false" />
+          <Property Name="discipline" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="x_undangan">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="created_by" Type="bigint" Nullable="false" />
+          <Property Name="created_on" Type="datetime" Nullable="false" />
+          <Property Name="modified_by" Type="bigint" />
+          <Property Name="modified_on" Type="datetime" />
+          <Property Name="deleted_by" Type="bigint" />
+          <Property Name="deleted_on" Type="datetime" />
+          <Property Name="is_delete" Type="bit" Nullable="false" />
+          <Property Name="schedule_type_id" Type="bigint" />
+          <Property Name="invitation_date" Type="date" />
+          <Property Name="invitation_code" Type="varchar" MaxLength="20" />
+          <Property Name="time" Type="bigint" />
+          <Property Name="ro" Type="bigint" />
+          <Property Name="tro" Type="bigint" />
+          <Property Name="other_ro_tro" Type="varchar" MaxLength="100" />
+          <Property Name="location" Type="varchar" MaxLength="100" />
+          <Property Name="status" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="x_undangan_detail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="created_by" Type="bigint" Nullable="false" />
+          <Property Name="created_on" Type="datetime" Nullable="false" />
+          <Property Name="modified_by" Type="bigint" />
+          <Property Name="modified_on" Type="datetime" />
+          <Property Name="deleted_by" Type="bigint" />
+          <Property Name="deleted_on" Type="datetime" />
+          <Property Name="is_delete" Type="bit" Nullable="false" />
+          <Property Name="undangan_id" Type="bigint" Nullable="false" />
+          <Property Name="biodata_id" Type="bigint" Nullable="false" />
+          <Property Name="notes" Type="varchar" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="x_userrole">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="created_by" Type="bigint" Nullable="false" />
+          <Property Name="created_on" Type="datetime" Nullable="false" />
+          <Property Name="modified_by" Type="bigint" />
+          <Property Name="modified_on" Type="datetime" />
+          <Property Name="deleted_by" Type="bigint" />
+          <Property Name="deleted_on" Type="datetime" />
+          <Property Name="is_delete" Type="bit" Nullable="false" />
+          <Property Name="addrbook_id" Type="bigint" Nullable="false" />
+          <Property Name="role_id" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="DBSpecModelStoreContainer">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="x_addrbook" EntityType="Self.x_addrbook" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="x_address" EntityType="Self.x_address" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="x_biodata" EntityType="Self.x_biodata" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="x_client" EntityType="Self.x_client" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="x_employee" EntityType="Self.x_employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="x_identity_type" EntityType="Self.x_identity_type" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="x_marital_status" EntityType="Self.x_marital_status" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="x_menu_access" EntityType="Self.x_menu_access" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="x_menutree" EntityType="Self.x_menutree" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="x_online_test" EntityType="Self.x_online_test" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="x_online_test_detail" EntityType="Self.x_online_test_detail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="x_placement" EntityType="Self.x_placement" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="x_religion" EntityType="Self.x_religion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="x_rencana_jadwal" EntityType="Self.x_rencana_jadwal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="x_riwayat_pekerjaan" EntityType="Self.x_riwayat_pekerjaan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="x_riwayat_pendidikan" EntityType="Self.x_riwayat_pendidikan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="x_role" EntityType="Self.x_role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="x_schedule_type" EntityType="Self.x_schedule_type" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="x_sertifikasi" EntityType="Self.x_sertifikasi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="x_test_type" EntityType="Self.x_test_type" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="x_time_period" EntityType="Self.x_time_period" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="x_timesheet" EntityType="Self.x_timesheet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="x_timesheet_assessment" EntityType="Self.x_timesheet_assessment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="x_undangan" EntityType="Self.x_undangan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="x_undangan_detail" EntityType="Self.x_undangan_detail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="x_userrole" EntityType="Self.x_userrole" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DBSpecModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="DBSpecEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="x_biodata" EntityType="DBSpecModel.x_biodata" />
+          <EntitySet Name="x_address" EntityType="DBSpecModel.x_address" />
+          <EntitySet Name="x_identity_type" EntityType="DBSpecModel.x_identity_type" />
+          <EntitySet Name="x_marital_status" EntityType="DBSpecModel.x_marital_status" />
+          <EntitySet Name="x_rencana_jadwal" EntityType="DBSpecModel.x_rencana_jadwal" />
+          <EntitySet Name="x_employee" EntityType="DBSpecModel.x_employee" />
+          <EntitySet Name="x_schedule_type" EntityType="DBSpecModel.x_schedule_type" />
+          <EntitySet Name="x_undangan_detail" EntityType="DBSpecModel.x_undangan_detail" />
+          <EntitySet Name="x_time_period" EntityType="DBSpecModel.x_time_period" />
+          <EntitySet Name="x_undangan" EntityType="DBSpecModel.x_undangan" />
+          <EntitySet Name="sysdiagrams" EntityType="DBSpecModel.sysdiagram" />
+          <EntitySet Name="x_riwayat_pendidikan" EntityType="DBSpecModel.x_riwayat_pendidikan" />
+          <EntitySet Name="x_addrbook" EntityType="DBSpecModel.x_addrbook" />
+          <EntitySet Name="x_client" EntityType="DBSpecModel.x_client" />
+          <EntitySet Name="x_menu_access" EntityType="DBSpecModel.x_menu_access" />
+          <EntitySet Name="x_menutree" EntityType="DBSpecModel.x_menutree" />
+          <EntitySet Name="x_placement" EntityType="DBSpecModel.x_placement" />
+          <EntitySet Name="x_riwayat_pekerjaan" EntityType="DBSpecModel.x_riwayat_pekerjaan" />
+          <EntitySet Name="x_role" EntityType="DBSpecModel.x_role" />
+          <EntitySet Name="x_timesheet" EntityType="DBSpecModel.x_timesheet" />
+          <EntitySet Name="x_timesheet_assessment" EntityType="DBSpecModel.x_timesheet_assessment" />
+          <EntitySet Name="x_userrole" EntityType="DBSpecModel.x_userrole" />
+          <EntitySet Name="x_online_test" EntityType="DBSpecModel.x_online_test" />
+          <EntitySet Name="x_online_test_detail" EntityType="DBSpecModel.x_online_test_detail" />
+          <EntitySet Name="x_test_type" EntityType="DBSpecModel.x_test_type" />
+          <EntitySet Name="x_religion" EntityType="DBSpecModel.x_religion" />
+          <EntitySet Name="x_sertifikasi" EntityType="DBSpecModel.x_sertifikasi" />
+        </EntityContainer>
+        <EntityType Name="x_biodata">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" />
+          <Property Name="created_by" Type="Int64" Nullable="false" />
+          <Property Name="created_on" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="modified_by" Type="Int64" />
+          <Property Name="modified_on" Type="DateTime" Precision="3" />
+          <Property Name="deleted_by" Type="Int64" />
+          <Property Name="deleted_on" Type="DateTime" Precision="3" />
+          <Property Name="is_delete" Type="Boolean" Nullable="false" />
+          <Property Name="fullname" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="nick_name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="pob" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="dob" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="gender" Type="Boolean" Nullable="false" />
+          <Property Name="religion_id" Type="Int64" Nullable="false" />
+          <Property Name="high" Type="Int32" />
+          <Property Name="weight" Type="Int32" />
+          <Property Name="nationally" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ethnic" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="hobby" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="identity_type_id" Type="Int64" Nullable="false" />
+          <Property Name="identity_no" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="phone_number1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="phone_number2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="parent_phone_number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="child_sequence" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="how_many_brothers" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="marital_status_id" Type="Int64" Nullable="false" />
+          <Property Name="addrbook_id" Type="Int64" />
+          <Property Name="token" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="expired_token" Type="DateTime" Precision="0" />
+          <Property Name="marriage_year" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="company_id" Type="Int64" Nullable="false" />
+          <Property Name="is_process" Type="Boolean" />
+          <Property Name="is_complete" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="x_address">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" />
+          <Property Name="created_by" Type="Int64" Nullable="false" />
+          <Property Name="created_on" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="modified_by" Type="Int64" />
+          <Property Name="modified_on" Type="DateTime" Precision="3" />
+          <Property Name="deleted_by" Type="Int64" />
+          <Property Name="deleted_on" Type="DateTime" Precision="3" />
+          <Property Name="is_delete" Type="Boolean" Nullable="false" />
+          <Property Name="biodata_id" Type="Int64" Nullable="false" />
+          <Property Name="address1" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="postal_code1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="rt1" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="rw1" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="kelurahan1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="kecamatan1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="region1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="address2" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="postal_code2" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="rt2" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="rw2" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="kelurahan2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="kecamatan2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="region2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="x_identity_type">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="x_marital_status">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="x_rencana_jadwal">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="created_by" Type="Int64" Nullable="false" />
+          <Property Name="created_on" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="modified_by" Type="Int64" />
+          <Property Name="modified_on" Type="DateTime" Precision="3" />
+          <Property Name="deleted_by" Type="Int64" />
+          <Property Name="deleted_on" Type="DateTime" Precision="3" />
+          <Property Name="id_delete" Type="Boolean" Nullable="false" />
+          <Property Name="schedule_code" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="schedule_date" Type="DateTime" Precision="0" />
+          <Property Name="time" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ro" Type="Int64" />
+          <Property Name="tro" Type="Int64" />
+          <Property Name="schedule_type_id" Type="Int64" />
+          <Property Name="location" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="other_ro_tro" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="notes" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="is_automatic_mail" Type="Boolean" />
+          <Property Name="sent_date" Type="DateTime" Precision="0" />
+          <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="x_employee">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="created_by" Type="Int64" Nullable="false" />
+          <Property Name="created_on" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="modified_by" Type="Int64" />
+          <Property Name="modified_on" Type="DateTime" Precision="3" />
+          <Property Name="deleted_by" Type="Int64" />
+          <Property Name="deleted_on" Type="DateTime" Precision="3" />
+          <Property Name="is_delete" Type="Boolean" Nullable="false" />
+          <Property Name="biodata_id" Type="Int64" Nullable="false" />
+          <Property Name="is_idle" Type="Boolean" />
+          <Property Name="is_ero" Type="Boolean" />
+          <Property Name="is_user_client" Type="Boolean" />
+          <Property Name="ero_email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="x_schedule_type">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="x_undangan_detail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="created_by" Type="Int64" Nullable="false" />
+          <Property Name="created_on" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="modified_by" Type="Int64" />
+          <Property Name="modified_on" Type="DateTime" Precision="3" />
+          <Property Name="deleted_by" Type="Int64" />
+          <Property Name="deleted_on" Type="DateTime" Precision="3" />
+          <Property Name="is_delete" Type="Boolean" Nullable="false" />
+          <Property Name="undangan_id" Type="Int64" Nullable="false" />
+          <Property Name="biodata_id" Type="Int64" Nullable="false" />
+          <Property Name="notes" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="x_time_period">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="description" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="x_undangan">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="created_by" Type="Int64" Nullable="false" />
+          <Property Name="created_on" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="modified_by" Type="Int64" />
+          <Property Name="modified_on" Type="DateTime" Precision="3" />
+          <Property Name="deleted_by" Type="Int64" />
+          <Property Name="deleted_on" Type="DateTime" Precision="3" />
+          <Property Name="is_delete" Type="Boolean" Nullable="false" />
+          <Property Name="schedule_type_id" Type="Int64" />
+          <Property Name="invitation_date" Type="DateTime" Precision="0" />
+          <Property Name="invitation_code" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="time" Type="Int64" />
+          <Property Name="ro" Type="Int64" />
+          <Property Name="tro" Type="Int64" />
+          <Property Name="other_ro_tro" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="location" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="x_riwayat_pendidikan">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="school_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="biodata_id" Type="Int64" Nullable="false" />
+          <Property Name="major" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="x_addrbook">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" />
+          <Property Name="created_by" Type="Int64" Nullable="false" />
+          <Property Name="created_on" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="modified_by" Type="Int64" />
+          <Property Name="modified_on" Type="DateTime" Precision="3" />
+          <Property Name="deleted_by" Type="Int64" />
+          <Property Name="deleted_on" Type="DateTime" Precision="3" />
+          <Property Name="is_delete" Type="Boolean" Nullable="false" />
+          <Property Name="is_locked" Type="Boolean" Nullable="false" />
+          <Property Name="attempt" Type="Int32" Nullable="false" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="abuid" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="abpwd" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fp_token" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="fp_expired_date" Type="DateTime" Precision="3" />
+          <Property Name="fp_counter" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="x_client">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="created_by" Type="Int64" Nullable="false" />
+          <Property Name="created_on" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="modified_by" Type="Int64" />
+          <Property Name="modified_on" Type="DateTime" Precision="3" />
+          <Property Name="deleted_by" Type="Int64" />
+          <Property Name="deleted_on" Type="DateTime" Precision="3" />
+          <Property Name="is_delete" Type="Boolean" Nullable="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="user_client_name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ero" Type="Int64" Nullable="false" />
+          <Property Name="user_email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="x_menu_access">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="menutree_id" Type="Int64" Nullable="false" />
+          <Property Name="role_id" Type="Int64" Nullable="false" />
+          <Property Name="created_by" Type="Int64" Nullable="false" />
+          <Property Name="created_on" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="modified_by" Type="Int64" />
+          <Property Name="modified_on" Type="DateTime" Precision="3" />
+          <Property Name="deleted_by" Type="Int64" />
+          <Property Name="deleted_on" Type="DateTime" Precision="3" />
+          <Property Name="is_delete" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="x_menutree">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="menu_imageUrl" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="menu_icon" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="menu_order" Type="Int32" Nullable="false" />
+          <Property Name="menu_level" Type="Int32" Nullable="false" />
+          <Property Name="menu_parent" Type="Int32" />
+          <Property Name="menu_url" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="menu_type" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="created_by" Type="Int32" Nullable="false" />
+          <Property Name="created_on" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="modified_by" Type="Int32" />
+          <Property Name="modified_on" Type="DateTime" Precision="3" />
+          <Property Name="delete_by" Type="Int32" />
+          <Property Name="detele_on" Type="DateTime" Precision="3" />
+          <Property Name="is_delete" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="x_placement">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="created_by" Type="Int64" Nullable="false" />
+          <Property Name="created_on" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="modified_by" Type="Int64" />
+          <Property Name="modified_on" Type="DateTime" Precision="3" />
+          <Property Name="deleted_by" Type="Int64" />
+          <Property Name="deleted_on" Type="DateTime" Precision="3" />
+          <Property Name="is_delete" Type="Boolean" Nullable="false" />
+          <Property Name="client_id" Type="Int64" Nullable="false" />
+          <Property Name="employee_id" Type="Int64" Nullable="false" />
+          <Property Name="is_placement_active" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="x_riwayat_pekerjaan">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="created_by" Type="Int32" Nullable="false" />
+          <Property Name="created_on" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="modified_by" Type="Int32" />
+          <Property Name="modified_on" Type="DateTime" Precision="3" />
+          <Property Name="delete_by" Type="Int32" />
+          <Property Name="delete_on" Type="DateTime" Precision="3" />
+          <Property Name="is_delete" Type="Boolean" Nullable="false" />
+          <Property Name="biodata_id" Type="Int32" Nullable="false" />
+          <Property Name="company_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="join_year" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="join_month" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="resign_year" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="resign_month" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="last_position" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="income" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="is_it_related" Type="Boolean" />
+          <Property Name="about_job" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="exit_reason" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="notes" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="x_role">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="code" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="created_by" Type="Int64" Nullable="false" />
+          <Property Name="created_on" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="modified_by" Type="Int64" />
+          <Property Name="modified_on" Type="DateTime" Precision="3" />
+          <Property Name="deleted_by" Type="Int64" />
+          <Property Name="deleted_on" Type="DateTime" Precision="3" />
+          <Property Name="is_delete" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="x_timesheet">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="created_by" Type="Int64" Nullable="false" />
+          <Property Name="created_on" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="modified_by" Type="Int64" />
+          <Property Name="modified_on" Type="DateTime" Precision="3" />
+          <Property Name="deleted_by" Type="Int64" />
+          <Property Name="deleted_on" Type="DateTime" Precision="3" />
+          <Property Name="is_delete" Type="Boolean" Nullable="false" />
+          <Property Name="status" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="placement_id" Type="Int64" Nullable="false" />
+          <Property Name="timesheet_date" Type="DateTime" Precision="0" />
+          <Property Name="start" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="end" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="overtime" Type="Boolean" />
+          <Property Name="start_ot" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="end_ot" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="activity" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="user_approval" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="submitted_on" Type="DateTime" Precision="3" />
+          <Property Name="approved_on" Type="DateTime" Precision="3" />
+          <Property Name="ero_status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="sent_on" Type="DateTime" Precision="3" />
+          <Property Name="collected_on" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="x_timesheet_assessment">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="created_by" Type="Int64" Nullable="false" />
+          <Property Name="created_on" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="modified_by" Type="Int64" />
+          <Property Name="modified_on" Type="DateTime" Precision="3" />
+          <Property Name="deleted_by" Type="Int64" />
+          <Property Name="deleted_on" Type="DateTime" Precision="3" />
+          <Property Name="is_delete" Type="Boolean" Nullable="false" />
+          <Property Name="year" Type="Int32" Nullable="false" />
+          <Property Name="month" Type="Int32" Nullable="false" />
+          <Property Name="placement_id" Type="Int64" Nullable="false" />
+          <Property Name="target_result" Type="Int32" Nullable="false" />
+          <Property Name="competency" Type="Int32" Nullable="false" />
+          <Property Name="discipline" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="x_userrole">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="created_by" Type="Int64" Nullable="false" />
+          <Property Name="created_on" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="modified_by" Type="Int64" />
+          <Property Name="modified_on" Type="DateTime" Precision="3" />
+          <Property Name="deleted_by" Type="Int64" />
+          <Property Name="deleted_on" Type="DateTime" Precision="3" />
+          <Property Name="is_delete" Type="Boolean" Nullable="false" />
+          <Property Name="addrbook_id" Type="Int64" Nullable="false" />
+          <Property Name="role_id" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="x_online_test">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="created_by" Type="Int64" Nullable="false" />
+          <Property Name="created_on" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="modified_by" Type="Int64" />
+          <Property Name="modified_on" Type="DateTime" Precision="3" />
+          <Property Name="deleted_by" Type="Int64" />
+          <Property Name="deleted_on" Type="DateTime" Precision="3" />
+          <Property Name="is_delete" Type="Boolean" Nullable="false" />
+          <Property Name="biodata_id" Type="Int64" Nullable="false" />
+          <Property Name="period_code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="period" Type="Int32" />
+          <Property Name="test_date" Type="DateTime" Precision="0" />
+          <Property Name="expired_test" Type="DateTime" Precision="0" />
+          <Property Name="user_access" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="x_online_test_detail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="created_by" Type="Int64" Nullable="false" />
+          <Property Name="created_on" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="modified_by" Type="Int64" />
+          <Property Name="modified_on" Type="DateTime" Precision="3" />
+          <Property Name="deleted_by" Type="Int64" />
+          <Property Name="deleted_on" Type="DateTime" Precision="3" />
+          <Property Name="is_delete" Type="Boolean" Nullable="false" />
+          <Property Name="online_test_id" Type="Int64" />
+          <Property Name="test_type_id" Type="Int64" />
+          <Property Name="test_order" Type="Int32" />
+        </EntityType>
+        <EntityType Name="x_test_type">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="created_by" Type="Int64" Nullable="false" />
+          <Property Name="created_on" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="modified_by" Type="Int64" />
+          <Property Name="modified_on" Type="DateTime" Precision="3" />
+          <Property Name="deleted_by" Type="Int64" />
+          <Property Name="deleted_on" Type="DateTime" Precision="3" />
+          <Property Name="is_delete" Type="Boolean" Nullable="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="x_religion">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="created_by" Type="Int64" Nullable="false" />
+          <Property Name="created_on" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="modified_by" Type="Int64" />
+          <Property Name="modified_on" Type="DateTime" Precision="3" />
+          <Property Name="deleted_by" Type="Int64" />
+          <Property Name="deleted_on" Type="DateTime" Precision="3" />
+          <Property Name="is_delete" Type="Boolean" Nullable="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="x_sertifikasi">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="created_by" Type="Int64" Nullable="false" />
+          <Property Name="created_on" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="modified_by" Type="Int64" />
+          <Property Name="modified_on" Type="DateTime" Precision="3" />
+          <Property Name="deleted_by" Type="Int64" />
+          <Property Name="deleted_on" Type="DateTime" Precision="3" />
+          <Property Name="is_delete" Type="Boolean" Nullable="false" />
+          <Property Name="biodata_id" Type="Int64" Nullable="false" />
+          <Property Name="certificate_name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="publisher" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="valid_start_year" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="valid_start_month" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="until_year" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="until_month" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="notes" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DBSpecModelStoreContainer" CdmEntityContainer="DBSpecEntities">
+          <EntitySetMapping Name="x_biodata">
+            <EntityTypeMapping TypeName="DBSpecModel.x_biodata">
+              <MappingFragment StoreEntitySet="x_biodata">
+                <ScalarProperty Name="is_complete" ColumnName="is_complete" />
+                <ScalarProperty Name="is_process" ColumnName="is_process" />
+                <ScalarProperty Name="company_id" ColumnName="company_id" />
+                <ScalarProperty Name="marriage_year" ColumnName="marriage_year" />
+                <ScalarProperty Name="expired_token" ColumnName="expired_token" />
+                <ScalarProperty Name="token" ColumnName="token" />
+                <ScalarProperty Name="addrbook_id" ColumnName="addrbook_id" />
+                <ScalarProperty Name="marital_status_id" ColumnName="marital_status_id" />
+                <ScalarProperty Name="how_many_brothers" ColumnName="how_many_brothers" />
+                <ScalarProperty Name="child_sequence" ColumnName="child_sequence" />
+                <ScalarProperty Name="parent_phone_number" ColumnName="parent_phone_number" />
+                <ScalarProperty Name="phone_number2" ColumnName="phone_number2" />
+                <ScalarProperty Name="phone_number1" ColumnName="phone_number1" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="identity_no" ColumnName="identity_no" />
+                <ScalarProperty Name="identity_type_id" ColumnName="identity_type_id" />
+                <ScalarProperty Name="hobby" ColumnName="hobby" />
+                <ScalarProperty Name="ethnic" ColumnName="ethnic" />
+                <ScalarProperty Name="nationally" ColumnName="nationally" />
+                <ScalarProperty Name="weight" ColumnName="weight" />
+                <ScalarProperty Name="high" ColumnName="high" />
+                <ScalarProperty Name="religion_id" ColumnName="religion_id" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="dob" ColumnName="dob" />
+                <ScalarProperty Name="pob" ColumnName="pob" />
+                <ScalarProperty Name="nick_name" ColumnName="nick_name" />
+                <ScalarProperty Name="fullname" ColumnName="fullname" />
+                <ScalarProperty Name="is_delete" ColumnName="is_delete" />
+                <ScalarProperty Name="deleted_on" ColumnName="deleted_on" />
+                <ScalarProperty Name="deleted_by" ColumnName="deleted_by" />
+                <ScalarProperty Name="modified_on" ColumnName="modified_on" />
+                <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+                <ScalarProperty Name="created_on" ColumnName="created_on" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="x_address">
+            <EntityTypeMapping TypeName="DBSpecModel.x_address">
+              <MappingFragment StoreEntitySet="x_address">
+                <ScalarProperty Name="region2" ColumnName="region2" />
+                <ScalarProperty Name="kecamatan2" ColumnName="kecamatan2" />
+                <ScalarProperty Name="kelurahan2" ColumnName="kelurahan2" />
+                <ScalarProperty Name="rw2" ColumnName="rw2" />
+                <ScalarProperty Name="rt2" ColumnName="rt2" />
+                <ScalarProperty Name="postal_code2" ColumnName="postal_code2" />
+                <ScalarProperty Name="address2" ColumnName="address2" />
+                <ScalarProperty Name="region1" ColumnName="region1" />
+                <ScalarProperty Name="kecamatan1" ColumnName="kecamatan1" />
+                <ScalarProperty Name="kelurahan1" ColumnName="kelurahan1" />
+                <ScalarProperty Name="rw1" ColumnName="rw1" />
+                <ScalarProperty Name="rt1" ColumnName="rt1" />
+                <ScalarProperty Name="postal_code1" ColumnName="postal_code1" />
+                <ScalarProperty Name="address1" ColumnName="address1" />
+                <ScalarProperty Name="biodata_id" ColumnName="biodata_id" />
+                <ScalarProperty Name="is_delete" ColumnName="is_delete" />
+                <ScalarProperty Name="deleted_on" ColumnName="deleted_on" />
+                <ScalarProperty Name="deleted_by" ColumnName="deleted_by" />
+                <ScalarProperty Name="modified_on" ColumnName="modified_on" />
+                <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+                <ScalarProperty Name="created_on" ColumnName="created_on" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="x_identity_type">
+            <EntityTypeMapping TypeName="DBSpecModel.x_identity_type">
+              <MappingFragment StoreEntitySet="x_identity_type">
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="x_marital_status">
+            <EntityTypeMapping TypeName="DBSpecModel.x_marital_status">
+              <MappingFragment StoreEntitySet="x_marital_status">
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="x_rencana_jadwal">
+            <EntityTypeMapping TypeName="DBSpecModel.x_rencana_jadwal">
+              <MappingFragment StoreEntitySet="x_rencana_jadwal">
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="sent_date" ColumnName="sent_date" />
+                <ScalarProperty Name="is_automatic_mail" ColumnName="is_automatic_mail" />
+                <ScalarProperty Name="notes" ColumnName="notes" />
+                <ScalarProperty Name="other_ro_tro" ColumnName="other_ro_tro" />
+                <ScalarProperty Name="location" ColumnName="location" />
+                <ScalarProperty Name="schedule_type_id" ColumnName="schedule_type_id" />
+                <ScalarProperty Name="tro" ColumnName="tro" />
+                <ScalarProperty Name="ro" ColumnName="ro" />
+                <ScalarProperty Name="time" ColumnName="time" />
+                <ScalarProperty Name="schedule_date" ColumnName="schedule_date" />
+                <ScalarProperty Name="schedule_code" ColumnName="schedule_code" />
+                <ScalarProperty Name="id_delete" ColumnName="id_delete" />
+                <ScalarProperty Name="deleted_on" ColumnName="deleted_on" />
+                <ScalarProperty Name="deleted_by" ColumnName="deleted_by" />
+                <ScalarProperty Name="modified_on" ColumnName="modified_on" />
+                <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+                <ScalarProperty Name="created_on" ColumnName="created_on" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="x_employee">
+            <EntityTypeMapping TypeName="DBSpecModel.x_employee">
+              <MappingFragment StoreEntitySet="x_employee">
+                <ScalarProperty Name="ero_email" ColumnName="ero_email" />
+                <ScalarProperty Name="is_user_client" ColumnName="is_user_client" />
+                <ScalarProperty Name="is_ero" ColumnName="is_ero" />
+                <ScalarProperty Name="is_idle" ColumnName="is_idle" />
+                <ScalarProperty Name="biodata_id" ColumnName="biodata_id" />
+                <ScalarProperty Name="is_delete" ColumnName="is_delete" />
+                <ScalarProperty Name="deleted_on" ColumnName="deleted_on" />
+                <ScalarProperty Name="deleted_by" ColumnName="deleted_by" />
+                <ScalarProperty Name="modified_on" ColumnName="modified_on" />
+                <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+                <ScalarProperty Name="created_on" ColumnName="created_on" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="x_schedule_type">
+            <EntityTypeMapping TypeName="DBSpecModel.x_schedule_type">
+              <MappingFragment StoreEntitySet="x_schedule_type">
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="x_undangan_detail">
+            <EntityTypeMapping TypeName="DBSpecModel.x_undangan_detail">
+              <MappingFragment StoreEntitySet="x_undangan_detail">
+                <ScalarProperty Name="notes" ColumnName="notes" />
+                <ScalarProperty Name="biodata_id" ColumnName="biodata_id" />
+                <ScalarProperty Name="undangan_id" ColumnName="undangan_id" />
+                <ScalarProperty Name="is_delete" ColumnName="is_delete" />
+                <ScalarProperty Name="deleted_on" ColumnName="deleted_on" />
+                <ScalarProperty Name="deleted_by" ColumnName="deleted_by" />
+                <ScalarProperty Name="modified_on" ColumnName="modified_on" />
+                <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+                <ScalarProperty Name="created_on" ColumnName="created_on" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="x_time_period">
+            <EntityTypeMapping TypeName="DBSpecModel.x_time_period">
+              <MappingFragment StoreEntitySet="x_time_period">
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="x_undangan">
+            <EntityTypeMapping TypeName="DBSpecModel.x_undangan">
+              <MappingFragment StoreEntitySet="x_undangan">
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="location" ColumnName="location" />
+                <ScalarProperty Name="other_ro_tro" ColumnName="other_ro_tro" />
+                <ScalarProperty Name="tro" ColumnName="tro" />
+                <ScalarProperty Name="ro" ColumnName="ro" />
+                <ScalarProperty Name="time" ColumnName="time" />
+                <ScalarProperty Name="invitation_code" ColumnName="invitation_code" />
+                <ScalarProperty Name="invitation_date" ColumnName="invitation_date" />
+                <ScalarProperty Name="schedule_type_id" ColumnName="schedule_type_id" />
+                <ScalarProperty Name="is_delete" ColumnName="is_delete" />
+                <ScalarProperty Name="deleted_on" ColumnName="deleted_on" />
+                <ScalarProperty Name="deleted_by" ColumnName="deleted_by" />
+                <ScalarProperty Name="modified_on" ColumnName="modified_on" />
+                <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+                <ScalarProperty Name="created_on" ColumnName="created_on" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="DBSpecModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="x_riwayat_pendidikan">
+            <EntityTypeMapping TypeName="DBSpecModel.x_riwayat_pendidikan">
+              <MappingFragment StoreEntitySet="x_riwayat_pendidikan">
+                <ScalarProperty Name="major" ColumnName="major" />
+                <ScalarProperty Name="biodata_id" ColumnName="biodata_id" />
+                <ScalarProperty Name="school_name" ColumnName="school_name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="x_addrbook">
+            <EntityTypeMapping TypeName="DBSpecModel.x_addrbook">
+              <MappingFragment StoreEntitySet="x_addrbook">
+                <ScalarProperty Name="fp_counter" ColumnName="fp_counter" />
+                <ScalarProperty Name="fp_expired_date" ColumnName="fp_expired_date" />
+                <ScalarProperty Name="fp_token" ColumnName="fp_token" />
+                <ScalarProperty Name="abpwd" ColumnName="abpwd" />
+                <ScalarProperty Name="abuid" ColumnName="abuid" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="attempt" ColumnName="attempt" />
+                <ScalarProperty Name="is_locked" ColumnName="is_locked" />
+                <ScalarProperty Name="is_delete" ColumnName="is_delete" />
+                <ScalarProperty Name="deleted_on" ColumnName="deleted_on" />
+                <ScalarProperty Name="deleted_by" ColumnName="deleted_by" />
+                <ScalarProperty Name="modified_on" ColumnName="modified_on" />
+                <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+                <ScalarProperty Name="created_on" ColumnName="created_on" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="x_client">
+            <EntityTypeMapping TypeName="DBSpecModel.x_client">
+              <MappingFragment StoreEntitySet="x_client">
+                <ScalarProperty Name="user_email" ColumnName="user_email" />
+                <ScalarProperty Name="ero" ColumnName="ero" />
+                <ScalarProperty Name="user_client_name" ColumnName="user_client_name" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="is_delete" ColumnName="is_delete" />
+                <ScalarProperty Name="deleted_on" ColumnName="deleted_on" />
+                <ScalarProperty Name="deleted_by" ColumnName="deleted_by" />
+                <ScalarProperty Name="modified_on" ColumnName="modified_on" />
+                <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+                <ScalarProperty Name="created_on" ColumnName="created_on" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="x_menu_access">
+            <EntityTypeMapping TypeName="DBSpecModel.x_menu_access">
+              <MappingFragment StoreEntitySet="x_menu_access">
+                <ScalarProperty Name="is_delete" ColumnName="is_delete" />
+                <ScalarProperty Name="deleted_on" ColumnName="deleted_on" />
+                <ScalarProperty Name="deleted_by" ColumnName="deleted_by" />
+                <ScalarProperty Name="modified_on" ColumnName="modified_on" />
+                <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+                <ScalarProperty Name="created_on" ColumnName="created_on" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="role_id" ColumnName="role_id" />
+                <ScalarProperty Name="menutree_id" ColumnName="menutree_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="x_menutree">
+            <EntityTypeMapping TypeName="DBSpecModel.x_menutree">
+              <MappingFragment StoreEntitySet="x_menutree">
+                <ScalarProperty Name="is_delete" ColumnName="is_delete" />
+                <ScalarProperty Name="detele_on" ColumnName="detele_on" />
+                <ScalarProperty Name="delete_by" ColumnName="delete_by" />
+                <ScalarProperty Name="modified_on" ColumnName="modified_on" />
+                <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+                <ScalarProperty Name="created_on" ColumnName="created_on" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="menu_type" ColumnName="menu_type" />
+                <ScalarProperty Name="menu_url" ColumnName="menu_url" />
+                <ScalarProperty Name="menu_parent" ColumnName="menu_parent" />
+                <ScalarProperty Name="menu_level" ColumnName="menu_level" />
+                <ScalarProperty Name="menu_order" ColumnName="menu_order" />
+                <ScalarProperty Name="menu_icon" ColumnName="menu_icon" />
+                <ScalarProperty Name="menu_imageUrl" ColumnName="menu_imageUrl" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="x_placement">
+            <EntityTypeMapping TypeName="DBSpecModel.x_placement">
+              <MappingFragment StoreEntitySet="x_placement">
+                <ScalarProperty Name="is_placement_active" ColumnName="is_placement_active" />
+                <ScalarProperty Name="employee_id" ColumnName="employee_id" />
+                <ScalarProperty Name="client_id" ColumnName="client_id" />
+                <ScalarProperty Name="is_delete" ColumnName="is_delete" />
+                <ScalarProperty Name="deleted_on" ColumnName="deleted_on" />
+                <ScalarProperty Name="deleted_by" ColumnName="deleted_by" />
+                <ScalarProperty Name="modified_on" ColumnName="modified_on" />
+                <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+                <ScalarProperty Name="created_on" ColumnName="created_on" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="x_riwayat_pekerjaan">
+            <EntityTypeMapping TypeName="DBSpecModel.x_riwayat_pekerjaan">
+              <MappingFragment StoreEntitySet="x_riwayat_pekerjaan">
+                <ScalarProperty Name="notes" ColumnName="notes" />
+                <ScalarProperty Name="exit_reason" ColumnName="exit_reason" />
+                <ScalarProperty Name="about_job" ColumnName="about_job" />
+                <ScalarProperty Name="is_it_related" ColumnName="is_it_related" />
+                <ScalarProperty Name="income" ColumnName="income" />
+                <ScalarProperty Name="last_position" ColumnName="last_position" />
+                <ScalarProperty Name="resign_month" ColumnName="resign_month" />
+                <ScalarProperty Name="resign_year" ColumnName="resign_year" />
+                <ScalarProperty Name="join_month" ColumnName="join_month" />
+                <ScalarProperty Name="join_year" ColumnName="join_year" />
+                <ScalarProperty Name="country" ColumnName="country" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="company_name" ColumnName="company_name" />
+                <ScalarProperty Name="biodata_id" ColumnName="biodata_id" />
+                <ScalarProperty Name="is_delete" ColumnName="is_delete" />
+                <ScalarProperty Name="delete_on" ColumnName="delete_on" />
+                <ScalarProperty Name="delete_by" ColumnName="delete_by" />
+                <ScalarProperty Name="modified_on" ColumnName="modified_on" />
+                <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+                <ScalarProperty Name="created_on" ColumnName="created_on" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="x_role">
+            <EntityTypeMapping TypeName="DBSpecModel.x_role">
+              <MappingFragment StoreEntitySet="x_role">
+                <ScalarProperty Name="is_delete" ColumnName="is_delete" />
+                <ScalarProperty Name="deleted_on" ColumnName="deleted_on" />
+                <ScalarProperty Name="deleted_by" ColumnName="deleted_by" />
+                <ScalarProperty Name="modified_on" ColumnName="modified_on" />
+                <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+                <ScalarProperty Name="created_on" ColumnName="created_on" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="x_timesheet">
+            <EntityTypeMapping TypeName="DBSpecModel.x_timesheet">
+              <MappingFragment StoreEntitySet="x_timesheet">
+                <ScalarProperty Name="collected_on" ColumnName="collected_on" />
+                <ScalarProperty Name="sent_on" ColumnName="sent_on" />
+                <ScalarProperty Name="ero_status" ColumnName="ero_status" />
+                <ScalarProperty Name="approved_on" ColumnName="approved_on" />
+                <ScalarProperty Name="submitted_on" ColumnName="submitted_on" />
+                <ScalarProperty Name="user_approval" ColumnName="user_approval" />
+                <ScalarProperty Name="activity" ColumnName="activity" />
+                <ScalarProperty Name="end_ot" ColumnName="end_ot" />
+                <ScalarProperty Name="start_ot" ColumnName="start_ot" />
+                <ScalarProperty Name="overtime" ColumnName="overtime" />
+                <ScalarProperty Name="end" ColumnName="end" />
+                <ScalarProperty Name="start" ColumnName="start" />
+                <ScalarProperty Name="timesheet_date" ColumnName="timesheet_date" />
+                <ScalarProperty Name="placement_id" ColumnName="placement_id" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="is_delete" ColumnName="is_delete" />
+                <ScalarProperty Name="deleted_on" ColumnName="deleted_on" />
+                <ScalarProperty Name="deleted_by" ColumnName="deleted_by" />
+                <ScalarProperty Name="modified_on" ColumnName="modified_on" />
+                <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+                <ScalarProperty Name="created_on" ColumnName="created_on" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="x_timesheet_assessment">
+            <EntityTypeMapping TypeName="DBSpecModel.x_timesheet_assessment">
+              <MappingFragment StoreEntitySet="x_timesheet_assessment">
+                <ScalarProperty Name="discipline" ColumnName="discipline" />
+                <ScalarProperty Name="competency" ColumnName="competency" />
+                <ScalarProperty Name="target_result" ColumnName="target_result" />
+                <ScalarProperty Name="placement_id" ColumnName="placement_id" />
+                <ScalarProperty Name="month" ColumnName="month" />
+                <ScalarProperty Name="year" ColumnName="year" />
+                <ScalarProperty Name="is_delete" ColumnName="is_delete" />
+                <ScalarProperty Name="deleted_on" ColumnName="deleted_on" />
+                <ScalarProperty Name="deleted_by" ColumnName="deleted_by" />
+                <ScalarProperty Name="modified_on" ColumnName="modified_on" />
+                <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+                <ScalarProperty Name="created_on" ColumnName="created_on" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="x_userrole">
+            <EntityTypeMapping TypeName="DBSpecModel.x_userrole">
+              <MappingFragment StoreEntitySet="x_userrole">
+                <ScalarProperty Name="role_id" ColumnName="role_id" />
+                <ScalarProperty Name="addrbook_id" ColumnName="addrbook_id" />
+                <ScalarProperty Name="is_delete" ColumnName="is_delete" />
+                <ScalarProperty Name="deleted_on" ColumnName="deleted_on" />
+                <ScalarProperty Name="deleted_by" ColumnName="deleted_by" />
+                <ScalarProperty Name="modified_on" ColumnName="modified_on" />
+                <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+                <ScalarProperty Name="created_on" ColumnName="created_on" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="x_online_test">
+            <EntityTypeMapping TypeName="DBSpecModel.x_online_test">
+              <MappingFragment StoreEntitySet="x_online_test">
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="user_access" ColumnName="user_access" />
+                <ScalarProperty Name="expired_test" ColumnName="expired_test" />
+                <ScalarProperty Name="test_date" ColumnName="test_date" />
+                <ScalarProperty Name="period" ColumnName="period" />
+                <ScalarProperty Name="period_code" ColumnName="period_code" />
+                <ScalarProperty Name="biodata_id" ColumnName="biodata_id" />
+                <ScalarProperty Name="is_delete" ColumnName="is_delete" />
+                <ScalarProperty Name="deleted_on" ColumnName="deleted_on" />
+                <ScalarProperty Name="deleted_by" ColumnName="deleted_by" />
+                <ScalarProperty Name="modified_on" ColumnName="modified_on" />
+                <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+                <ScalarProperty Name="created_on" ColumnName="created_on" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="x_online_test_detail">
+            <EntityTypeMapping TypeName="DBSpecModel.x_online_test_detail">
+              <MappingFragment StoreEntitySet="x_online_test_detail">
+                <ScalarProperty Name="test_order" ColumnName="test_order" />
+                <ScalarProperty Name="test_type_id" ColumnName="test_type_id" />
+                <ScalarProperty Name="online_test_id" ColumnName="online_test_id" />
+                <ScalarProperty Name="is_delete" ColumnName="is_delete" />
+                <ScalarProperty Name="deleted_on" ColumnName="deleted_on" />
+                <ScalarProperty Name="deleted_by" ColumnName="deleted_by" />
+                <ScalarProperty Name="modified_on" ColumnName="modified_on" />
+                <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+                <ScalarProperty Name="created_on" ColumnName="created_on" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="x_test_type">
+            <EntityTypeMapping TypeName="DBSpecModel.x_test_type">
+              <MappingFragment StoreEntitySet="x_test_type">
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="is_delete" ColumnName="is_delete" />
+                <ScalarProperty Name="deleted_on" ColumnName="deleted_on" />
+                <ScalarProperty Name="deleted_by" ColumnName="deleted_by" />
+                <ScalarProperty Name="modified_on" ColumnName="modified_on" />
+                <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+                <ScalarProperty Name="created_on" ColumnName="created_on" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="x_religion">
+            <EntityTypeMapping TypeName="DBSpecModel.x_religion">
+              <MappingFragment StoreEntitySet="x_religion">
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="is_delete" ColumnName="is_delete" />
+                <ScalarProperty Name="deleted_on" ColumnName="deleted_on" />
+                <ScalarProperty Name="deleted_by" ColumnName="deleted_by" />
+                <ScalarProperty Name="modified_on" ColumnName="modified_on" />
+                <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+                <ScalarProperty Name="created_on" ColumnName="created_on" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="x_sertifikasi">
+            <EntityTypeMapping TypeName="DBSpecModel.x_sertifikasi">
+              <MappingFragment StoreEntitySet="x_sertifikasi">
+                <ScalarProperty Name="notes" ColumnName="notes" />
+                <ScalarProperty Name="until_month" ColumnName="until_month" />
+                <ScalarProperty Name="until_year" ColumnName="until_year" />
+                <ScalarProperty Name="valid_start_month" ColumnName="valid_start_month" />
+                <ScalarProperty Name="valid_start_year" ColumnName="valid_start_year" />
+                <ScalarProperty Name="publisher" ColumnName="publisher" />
+                <ScalarProperty Name="certificate_name" ColumnName="certificate_name" />
+                <ScalarProperty Name="biodata_id" ColumnName="biodata_id" />
+                <ScalarProperty Name="is_delete" ColumnName="is_delete" />
+                <ScalarProperty Name="deleted_on" ColumnName="deleted_on" />
+                <ScalarProperty Name="deleted_by" ColumnName="deleted_by" />
+                <ScalarProperty Name="modified_on" ColumnName="modified_on" />
+                <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+                <ScalarProperty Name="created_on" ColumnName="created_on" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
