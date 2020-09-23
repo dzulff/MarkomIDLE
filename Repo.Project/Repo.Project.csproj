@@ -54,18 +54,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BiodataRepo.cs" />
-    <Compile Include="CariPelamarRepo.cs" />
     <Compile Include="Class1.cs" />
-    <Compile Include="GeneralRepo.cs" />
-    <Compile Include="HomeRepo.cs" />
+    <Compile Include="MenuRepo.cs" />
+    <Compile Include="ProductRepo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ReligionRepo.cs" />
-    <Compile Include="RepoRolePage.cs" />
-    <Compile Include="RepoSelectAccess.cs" />
-    <Compile Include="RepoTimesheet.cs" />
-    <Compile Include="SertifikasiRepo.cs" />
-    <Compile Include="UndanganRepo.cs" />
+    <Compile Include="RoleRepo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

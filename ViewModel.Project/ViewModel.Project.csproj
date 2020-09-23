@@ -58,15 +58,9 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="VMAccess.cs" />
-    <Compile Include="VMCariPelamar.cs" />
-    <Compile Include="VMCheck.cs" />
     <Compile Include="VMMenu.cs" />
-    <Compile Include="VMOnlineTest.cs" />
-    <Compile Include="VMPelamar.cs" />
-    <Compile Include="VMSertifikasi.cs" />
-    <Compile Include="VMTimesheet.cs" />
-    <Compile Include="VMUndangan.cs" />
+    <Compile Include="VMProduct.cs" />
+    <Compile Include="VMRole.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

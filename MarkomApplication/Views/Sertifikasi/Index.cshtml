@@ -1,0 +1,211 @@
+﻿@model List<ViewModel.Project.VMSertifikasi>
+
+@*@{
+    ViewBag.Title = "Index";
+}*@
+
+
+@*<button id="btn_Add" class="btn btn-xs" style="color: #191970;" >
+    <h3>
+        Sertifikasi
+        <i class="fas fa-plus fa-fw" style="color:#191970;"></i>
+    </h3>
+    </button>*@
+
+
+<h2 style="color: midnightblue">
+    Sertifikasi
+    <a class="fas fa-plus-circle btn btn_Add" biodata_id="1"></a>
+
+        @*<i class="fas fa-plus-circle" id="btn_Add" ></i>*@
+</h2>
+
+<style>
+    
+    table {
+        font-family: Arial, sans-serif;
+        width: 100%;
+    }
+
+    .modal-header{
+    background-color: darkblue;
+    padding : 20px;
+    color: white;
+    font-size: 24px;
+    font-family: Arial, sans-serif;
+    /*margin-bottom: 1px;*/
+}
+    .modal-body{
+        color: darkblue;
+ 
+    }
+    td, th {
+        border: 0px solid #000080;
+        text-align: center;
+        padding: 8px;
+        color: darkblue;
+    }
+
+    th{
+        border-top: 2px solid #000080;
+        border-bottom: 3px solid #000080;
+    }
+
+    td{
+        border-bottom: 1px solid #000080;
+    }
+</style>
+
+
+<table>
+    <thead>
+        <tr style="height:75px">
+            <th>NAMA SERTIFIKASI</th>
+            <th>PENERBIT</th>
+            <th>MASA BERLAKU SERTIFIKASI</th>
+            <th>#</th>
+     
+        </tr>
+    </thead>
+
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.certificate_name</td>
+                <td>@item.publisher</td>
+                <td>@item.valid_start_year-@item.valid_start_month s/d @item.until_year-@item.until_month</td>    
+                    
+                
+
+                <td>
+                    <div class="dropdown">
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color:#191970;">More <span class="caret"></span></button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+
+                            <a class="dropdown-item btn clsEdit" idUbah="@item.id" style="margin:5px 0 5px 0">Ubah</a>
+                            <hr style="margin:0" />
+                            <a class="dropdown-item btn clsDelete" idDel="@item.id" idName="@item.certificate_name" style="margin:5px 0 5px 0">Hapus</a>
+                        </div>
+                    </div>
+                </td>
+                </tr>
+        }
+    </tbody>
+</table>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="exampleModalLabel">Tambah Sertifikasi</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="id_Modal_Body">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal delete -->
+<div class="modal fade" id="ModalDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header"style="background-color: darkred" pad>
+                <h2 class="modal-title" id="ModalLabel">Hapus Sertifikasi?</h2>
+                @*<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>*@
+            </div>
+            <div class="modal-body" id="id_Modal_Delete">
+                <i class="fas fa-trash" style="font-size:60px; display: inline; float: left; margin: 5px; color:black;"></i>
+                <p id="df" style="display: inline-table; font-size:25px; color: red; margin-left: 12px;"></p>
+             </div>
+                <div class="modal-footer" col-4 col-sm-6 style="border-top-color: white">
+                    <button class="btn btn-danger" id="modal_delete" style="float: right; ">Ya</button>
+                    <button id="button" class="btn left-block" data-dismiss="modal" style="background-color:orange; color:white; float: right;">Tidak</button>
+
+                </div>
+            @*<div class="modal-footer">
+                <button id="button" class="btn" data-dismiss="modal" style="background-color:orange; color:white">Tidak</button>
+                <button class="btn btn-danger" id="modal_delete">Ya</button>               
+            </div>*@
+        </div>
+    </div>
+</div>
+
+<script>
+    //$("#btn_Add").click(function () {
+    //    $.ajax({
+    //        url: '/Sertifikasi/Create',
+    //        method: 'get',
+    //        success: function (hasil) {
+    //            $("#id_Modal_Body").empty();
+    //            $("#id_Modal_Body").append(hasil);
+    //            $("#exampleModal").modal("show");
+    //        }
+    //    });
+    //});
+
+
+    $(".btn_Add").click(function () {
+        var kd = $(this).attr("biodata_id");
+        $.ajax({
+            url: '/Sertifikasi/Create',
+            method: 'get',
+            data:{
+                id : kd
+            },
+            success: function (hasil) {
+                $("#id_Modal_Body").empty();
+                $("#id_Modal_Body").append(hasil);
+                $("#exampleModalLabel").empty();
+                $("#exampleModalLabel").append("Tambah Sertifikasi");
+                $("#exampleModal").modal("show");
+            }
+        });
+    });
+
+    $(".clsEdit").click(function () {
+        var Kd_Sertifikasi = $(this).attr("idUbah");
+        $.ajax({
+            url: '/Sertifikasi/Edit',
+            method: 'get',
+            data: {
+                id : Kd_Sertifikasi
+            },
+            success: function (hasil) {
+                $("#id_Modal_Body").empty();
+                $("#id_Modal_Body").append(hasil);
+                $("#exampleModal").modal("show");
+            }
+        });
+    });
+
+
+    $(".clsDelete").click(function () {
+        var Kd_Sertifikasi = $(this).attr("idDel")
+        var Nama = $(this).attr("idName")
+        $("#df").empty();
+        $("#df").append("Anda yakin ingin menghapus sertifikasi : <br/>" + Nama + " " + "?");
+        $("#ModalDelete").modal("show");
+        $("#modal_delete").click(function () {
+            debugger;
+            $.ajax({
+                url: '/Sertifikasi/Delete',
+                method: 'post',
+                data: {
+                    id : Kd_Sertifikasi
+                },
+                success: function () {
+                    location.reload();
+                }
+            });
+        });
+    });
+
+   
+</script>

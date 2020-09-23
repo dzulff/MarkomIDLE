@@ -1,0 +1,122 @@
+﻿<style>
+    .form-control {
+        border: 1px solid #191970;
+    }
+</style>
+
+@model ViewModel.Project.VMSertifikasi
+
+@using (Html.BeginForm("Create", "Sertifikasi", FormMethod.Post, new { @id = "id_Form_Create" }))
+{
+
+
+    <div class="from-group row">
+        <div class="from-group col-sm-6">
+            <label for="certificate_name">Nama Sertifikasi*</label>
+            <input type="text" class="form-control" id="certificate_name" name="certificate_name" required oninvalid="this.setCustomValidity('Data Tidak Boleh Kosong')"
+                   oninput="setCustomValidity('')">
+            <span id="certificate_name"></span>
+        </div>
+        <div class="from-group col-sm-6">
+            <label for="publisher">Penerbit*</label>
+            <input type="text" class="form-control" id="publisher" name="publisher" required oninvalid="this.setCustomValidity('Data Tidak Boleh Kosong')"
+                   oninput="setCustomValidity('')">
+            <span id="publisher"></span>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <label for="valid_start_month">Berlaku Mulai</label>
+        </div>
+        <div class="col-sm-6">
+            <label for="until_month">Berlaku Sampai</label>
+        </div>
+    </div>
+
+    <small class="form-text text-muted Validation" id="Validation" style="display:none">Berlaku Sampai Tidak Boleh Lebih Kecil Dari Berlaku Mulai</small>
+
+    <div class="form-group row">
+        <div class="col-sm-3">
+            @Html.DropDownList("valid_start_month", new SelectList(ViewBag.ListMonth, "value", "text"), "Pilih Bulan --", new { @class = "form-control", @id = "valid_start_month" })
+    @*<select class="form-control" id="valid_start_month" name="valid_start_month">
+                <option selected>-Pilih Bulan</option>
+                <option value="1">Januari</option>
+                <option value="2">Februari</option>
+                <option value="3">Maret</option>
+                <option value="4">April</option>
+                <option value="5">Mei</option>
+                <option value="6">Juni</option>
+                <option value="7">Juli</option>
+                <option value="8">Agustus</option>
+                <option value="9">September</option>
+                <option value="10">Oktober</option>
+                <option value="11">November</option>
+                <option value="12">Desember</option>
+            </select>
+        </div>*@
+        </div>
+
+        <div class="col-sm-3">
+            @Html.DropDownList("valid_start_year", new SelectList(ViewBag.ListYear, "value", "text"), "Pilih Tahun --", new { @class = "form-control", @id = "valid_start_year" })
+           
+        </div>
+
+        <div class="col-sm-3">
+            @Html.DropDownList("until_month", new SelectList(ViewBag.ListMonth, "value", "text"), "Pilih Bulan --", new { @class = "form-control", @id = "until_month"})
+        </div>
+        <div class="col-sm-3">
+            @Html.DropDownList("until_year", new SelectList(ViewBag.ListYear, "value", "text"), "Pilih Tahun --", new { @class = "form-control", @id = "until_year"})   
+        </div>
+    </div>
+
+
+    <div class="form-group-lg">
+        <div class="form-group col-sm-pull-12">
+            <label for="notes">Catatan</label>
+            <input type="text" class="form-control" id="notes" name="notes">
+        </div>
+    </div>
+
+    <div class="modal-footer" col-4 col-sm-6>
+        <button id="button" class="btn" data-dismiss="modal" style="background-color:orange; color:white">Batal</button>
+        <button id="btn_submit" type="submit" class="btn btn-primary">Simpan</button>
+    </div>
+
+    <script>
+        $("#until_year").click(function(){
+        var until = $("#until_year").val();
+        var start = $("#valid_start_year").val();
+        if (until < start)
+        {
+            $("#Validation").show();
+            $("#btn_submit").attr("disabled", true);
+        }
+        else
+        {
+            $("#Validation").hide();
+            $("#btn_submit").removeAttr("disabled", true);
+        }
+        
+        });
+
+        $("#valid_start_year").click(function () {
+            var until = $("#until_year").val();
+            var start = $("#valid_start_year").val();
+            if (until < start && until != "")
+            {
+                $("#Validation").show();
+                $("#btn_submit").attr("disabled", true);
+            }
+            else
+            {
+                $("#Validation").hide();
+                $("#btn_submit").removeAttr("disabled", true);
+            }
+            
+        });
+
+    </script>
+    
+}
+

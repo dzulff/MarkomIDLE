@@ -56,133 +56,60 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
-    <Compile Include="ModelMiniProject.Context.cs">
+    <Compile Include="Model.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModelMiniProject.Context.tt</DependentUpon>
+      <DependentUpon>Model.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="ModelMiniProject.cs">
+    <Compile Include="Model.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModelMiniProject.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="ModelMiniProject.Designer.cs">
+    <Compile Include="Model.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModelMiniProject.edmx</DependentUpon>
+      <DependentUpon>Model.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="m_menu.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="m_product.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="m_role.cs">
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="sysdiagram.cs">
-      <DependentUpon>ModelMiniProject.tt</DependentUpon>
-    </Compile>
-    <Compile Include="x_addrbook.cs">
-      <DependentUpon>ModelMiniProject.tt</DependentUpon>
-    </Compile>
-    <Compile Include="x_address.cs">
-      <DependentUpon>ModelMiniProject.tt</DependentUpon>
-    </Compile>
-    <Compile Include="x_biodata.cs">
-      <DependentUpon>ModelMiniProject.tt</DependentUpon>
-    </Compile>
-    <Compile Include="x_client.cs">
-      <DependentUpon>ModelMiniProject.tt</DependentUpon>
-    </Compile>
-    <Compile Include="x_employee.cs">
-      <DependentUpon>ModelMiniProject.tt</DependentUpon>
-    </Compile>
-    <Compile Include="x_identity_type.cs">
-      <DependentUpon>ModelMiniProject.tt</DependentUpon>
-    </Compile>
-    <Compile Include="x_marital_status.cs">
-      <DependentUpon>ModelMiniProject.tt</DependentUpon>
-    </Compile>
-    <Compile Include="x_menutree.cs">
-      <DependentUpon>ModelMiniProject.tt</DependentUpon>
-    </Compile>
-    <Compile Include="x_menu_access.cs">
-      <DependentUpon>ModelMiniProject.tt</DependentUpon>
-    </Compile>
-    <Compile Include="x_online_test.cs">
-      <DependentUpon>ModelMiniProject.tt</DependentUpon>
-    </Compile>
-    <Compile Include="x_online_test_detail.cs">
-      <DependentUpon>ModelMiniProject.tt</DependentUpon>
-    </Compile>
-    <Compile Include="x_placement.cs">
-      <DependentUpon>ModelMiniProject.tt</DependentUpon>
-    </Compile>
-    <Compile Include="x_religion.cs">
-      <DependentUpon>ModelMiniProject.tt</DependentUpon>
-    </Compile>
-    <Compile Include="x_rencana_jadwal.cs">
-      <DependentUpon>ModelMiniProject.tt</DependentUpon>
-    </Compile>
-    <Compile Include="x_riwayat_pekerjaan.cs">
-      <DependentUpon>ModelMiniProject.tt</DependentUpon>
-    </Compile>
-    <Compile Include="x_riwayat_pendidikan.cs">
-      <DependentUpon>ModelMiniProject.tt</DependentUpon>
-    </Compile>
-    <Compile Include="x_role.cs">
-      <DependentUpon>ModelMiniProject.tt</DependentUpon>
-    </Compile>
-    <Compile Include="x_schedule_type.cs">
-      <DependentUpon>ModelMiniProject.tt</DependentUpon>
-    </Compile>
-    <Compile Include="x_sertifikasi.cs">
-      <DependentUpon>ModelMiniProject.tt</DependentUpon>
-    </Compile>
-    <Compile Include="x_test_type.cs">
-      <DependentUpon>ModelMiniProject.tt</DependentUpon>
-    </Compile>
-    <Compile Include="x_timesheet.cs">
-      <DependentUpon>ModelMiniProject.tt</DependentUpon>
-    </Compile>
-    <Compile Include="x_timesheet_assessment.cs">
-      <DependentUpon>ModelMiniProject.tt</DependentUpon>
-    </Compile>
-    <Compile Include="x_time_period.cs">
-      <DependentUpon>ModelMiniProject.tt</DependentUpon>
-    </Compile>
-    <Compile Include="x_undangan.cs">
-      <DependentUpon>ModelMiniProject.tt</DependentUpon>
-    </Compile>
-    <Compile Include="x_undangan_detail.cs">
-      <DependentUpon>ModelMiniProject.tt</DependentUpon>
-    </Compile>
-    <Compile Include="x_userrole.cs">
-      <DependentUpon>ModelMiniProject.tt</DependentUpon>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <EntityDeploy Include="ModelMiniProject.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ModelMiniProject.Designer.cs</LastGenOutput>
-    </EntityDeploy>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="ModelMiniProject.edmx.diagram">
-      <DependentUpon>ModelMiniProject.edmx</DependentUpon>
+    <EntityDeploy Include="Model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model.edmx.diagram">
+      <DependentUpon>Model.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ModelMiniProject.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelMiniProject.edmx</DependentUpon>
-      <LastGenOutput>ModelMiniProject.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="ModelMiniProject.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelMiniProject.edmx</DependentUpon>
-      <LastGenOutput>ModelMiniProject.cs</LastGenOutput>
-    </Content>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Content Include="Model.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.cs</LastGenOutput>
+    </Content>
+    <Content Include="ModelMarkomIDLE.edmx.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
